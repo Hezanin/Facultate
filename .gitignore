@@ -1,0 +1,95 @@
+# Compiled object files and executables for C++
+*.o
+*.out
+*.exe
+
+# Compiled classes and jar files for Java
+*.class
+*.jar
+
+# IDE-specific files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Build directories
+bin/
+build/
+
+# Win32 API build files
+*.ilk
+*.pdb
+*.obj
+*.pch
+*.res
+*.sbr
+
+# Win32 API executables
+*.exe
+*.dll
+*.so
+*.dylib
+*.cfg
+
+# Ignore Matlab autosave files
+*.asv
+
+# Ignore Matlab backup files
+*.bak
+
+# Ignore Matlab code analyzer files
+*.m~*
+
+# Ignore compiled Matlab files
+*.mex*
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore Matlab generated files
+*.mat
+
+# Ignore binary files
+*.bin
+*.dat
+*.out
+*.dll
+*.so
+*.dylib
+
+# Ignore Matlab project files
+*.prj
+*.mlproj
+*.mlxproj
+*.mproj
+
+# Ignore Matlab preference files
+*.pref
+
+# Ignore Matlab Simulink files
+*.slx
+*.sldrt
+*.mdl*
+*.rtw*
+*.xcp
+*.xcpw
+*.ert*
+*.slprj
+*.sltx
+*.slmx
+*.ssc
+*.p
+
+# Ignore Matlab generated documentation files
+*.html
+*.css
+*.png
+*.gif
+*.jpg
+*.pdf
+*.docx
+*.md
+*.rst
