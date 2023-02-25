@@ -1,0 +1,89 @@
+bool DoesArrayContainThevalue(int b[], int m, int value)
+{
+    for(int i =0;i <m;i++)
+    {
+        if(b[i] == value)
+            return true;
+    }
+    return false;
+}
+void IntersectArrays(int a[], int b[], int n, int m)
+{
+    int maxSize ;
+    if(n>m)
+        maxSize = n;
+    else
+        maxSize = m;
+
+    int c[maxSize];
+    for(int i =0;i<maxSize;i++)
+    {
+        c[i] =INT_MIN;
+    }
+    PrintArray(c,maxSize);
+    int j =0;
+    for(int i =0;i<n;i++)
+    {
+        if( DoesArrayContainThevalue(b,m,a[i]) == true)
+        {
+            if(DoesArrayContainThevalue(c,m,a[i]) == false)
+            {
+                c[j++] = a[i];
+            }
+        }
+    }
+
+
+    PrintArray(c,maxSize);
+    int countMins = 0;
+    for(int i =0;i<maxSize;i++)
+    {
+        if(c[i] == INT_MIN)
+            countMins++;
+    }
+    int resultArraySize = maxSize - countMins;
+    int resultArray[resultArraySize];
+
+    for(int i =0; i<resultArraySize; i++)
+    {
+        resultArray[i] = c[i];
+    }
+    PrintArray(resultArray,resultArraySize);
+
+
+    //RemoveDuplicates(c,maxSize);
+}
+
+
+
+int main()
+{
+    int n;
+    cout<<"First Array size:";
+    cin>>n;
+    int myFirstArray[n];
+    ReadArray(myFirstArray, n);
+
+    int m;
+    cout<<"First Array size:";
+    cin>>m;
+    int mySecondArray[m];
+    ReadArray(mySecondArray, m);
+
+
+    PrintArray(myFirstArray, n);
+    PrintArray(mySecondArray, m);
+
+    IntersectArrays(myFirstArray,mySecondArray,n,m);
+
+/*    AddVectorDigits(myFirstArray, mySecondArray,n,m);
+    /
+    cin>>n;
+
+    /int resultArray;
+    resultArray = UnionArrays(myFirstArray,mySecondArray,n,m);
+    cin >>n;/
+    return 0; 
+}
+
+

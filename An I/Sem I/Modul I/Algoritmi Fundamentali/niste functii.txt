@@ -1,0 +1,242 @@
+int getFigure(int n)
+{
+    int count{ 0 };
+    while (n > 0)
+    {
+        n = n / 10;
+        count++;
+    }
+    return count;
+}
+
+int isPalindrome(int a)
+{
+    bool palindrome = true;
+    int copyN{ 0 };
+    int aux = a;
+    while (a > 0)
+    {
+        copyN = copyN * 10 + a % 10;
+        a = a / 10;        
+    }
+    if (copyN == aux)
+    {
+        palindrome = true;
+    }
+    else
+    {
+        palindrome = false;
+    }
+    return palindrome;
+}
+
+int isSuperPalindrome(int b)
+{
+    bool superPalindrome = true;
+    int product = b * b;
+    if (isPalindrome(b) == 1 && isPalindrome(product) == 1)
+    {
+        return superPalindrome;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int recursivFactorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return recursivFactorial(n - 1) * n;
+    }
+}
+
+int getFactorial(int n)
+{
+    int produs{ 1 };
+    for (size_t i = 1; i <= n; i++)
+    {
+        produs = produs * i;
+    }
+    return produs;
+}
+
+int getRecursiveArraySum(int n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+    else if (n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return getRecursiveArraySum(n - 1) + n;
+    }
+}
+
+int getArraySum(int n)
+{
+    int sum{ 0 };
+    for (size_t i = 0; i <= n; i++)
+    {
+        sum = sum + i;
+    }
+    return sum;
+}
+
+int getFibonacciSequence(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+ 
+    else
+    {
+        return getFibonacciSequence(n - 1) + getFibonacciSequence(n - 2);
+    }
+}
+
+int getFibonacci(int n)
+{
+    long int sum{ 0 };
+    for (size_t i = n - 1; i > 1 ; i--)
+    {
+        sum = sum + i + (i - 1);
+    }
+    return sum;
+}
+
+int fib(int n)
+{
+    int a = 0, b = 1, c, i;
+    if (n == 0)
+        return a;
+    for (i = 2; i <= n; i++)
+    {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
+}
+
+int sumFigure(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return n % 10 + sumFigure(n / 10);
+    }
+}
+
+int findMaxDigit(int n)
+{
+    if (n > 0)
+    {
+        int digit = n % 10;
+        int max = findMaxDigit(n / 10);
+        if (digit > max)
+        {
+            return digit;
+        }
+        else
+        {
+            return max;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int sumaValori(vector <int> n, int i = 0)
+{
+    if (i >= n.size())
+    {
+        return 0;
+    }
+    if (n.at(i) % 3 == 0)
+    {
+        return n.at(i) + sumaValori(n, i + 2);
+    }
+    else
+    {
+        return sumaValori(n, i + 2);
+    }
+}
+
+float findListSum(float n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return (1 / n) + findListSum(n - 1);
+    }
+}
+
+int findProduct(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 2 * findProduct(n - 1) + 1;
+    }
+}
+
+void printVector(vector <int> yourVector)
+{
+    cout << "[";
+    for (size_t i = 0; i < yourVector.size(); i++)
+    {
+        cout << yourVector.at(i) << ", ";
+    }
+    cout << "]";
+}
+
+void insertElementVector(vector <int> n, int valueToBeInserted)
+{
+    vector <int> copyVector(n.size() + 1, 0);
+    copyVector.at(0) = valueToBeInserted;
+
+    for (size_t i = 0; i < n.size(); i++)
+    {
+        copyVector.at(i + 1) = n.at(i);
+    }
+    n = copyVector;
+    
+}
+
+int sumDigits(int n)
+{
+    int sum{ 0 };
+    if (n <= 0)
+    {
+        return sum;
+    } 
+
+    while (n != 0)
+    {
+        sum = sum + (n % 10);
+        n = n / 10;
+    }
+    return sum;
+}

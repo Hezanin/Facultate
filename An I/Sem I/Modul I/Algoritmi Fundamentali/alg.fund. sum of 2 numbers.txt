@@ -1,0 +1,187 @@
+#include <iostream.h>
+#include <cmath>
+void ReadArray(int someArray[], int size)
+{
+    for (int i = 0; i < size ;i++)
+    {
+        cout<<"Array["<<i<<"]=";
+        cin>>someArray[i];
+    }
+}
+void PrintArray(int someArray[],int size)
+{
+    cout<<endl<<"Printing array:"<<endl;
+    for(int i = 0; i<size; i++)
+    {
+        cout<<someArray[i]<< " ";
+    }
+    cout<<endl;
+}
+
+void RemoveDuplicates(int someArray[],int size)
+{
+    cout<<endl<<"Removing duplicates...";
+    for(int i = 0; i<size; i++)
+    {
+
+            for(int j = i+1; j < size; j++)
+            {
+                cout<<endl<<"Comparing : "<<someArray[i] << "-" <<someArray[j];
+                if(someArray[i] == someArray[j])
+                {
+                    someArray[j] = INT_MIN;
+                }
+            }
+
+    }
+    cout<<endl<<"Counting duplicates...";
+    // Count int mins
+    int count = 0;
+    for(int i = 0; i<size; i++)
+    {
+        if(someArray[i] == INT_MIN)
+        {
+            count++;
+        }
+    }
+    cout<<endl;
+    PrintArray(someArray, size);
+
+    cout<<endl<<"Count duplicates ="<<count;
+    int uniqueElemArray[size-count];
+    int j=0;
+    for(int i = 0; i < size; i++)
+    {
+        if(someArray[i] != INT_MIN)
+        {
+            uniqueElemArray[j] = someArray[i];
+            j++;
+        }
+    }
+    PrintArray(uniqueElemArray, size-count);
+}
+
+
+
+int * UnionArrays(int a[], int b[], int sizeA, int sizeB)
+{
+    int result[sizeA + sizeB];
+
+    PrintArray(a, sizeA);
+    PrintArray(b, sizeB);
+    for(int i = 0; i < sizeA + sizeB; i++)
+    {
+        cout<<endl<<i;
+        if(i < sizeA)
+        {
+            result[i] = a[i];
+        }
+        else
+        {
+            result[i] = b[i-sizeA];
+        }
+    }
+    PrintArray(result, sizeA+sizeB);
+    RemoveDuplicates(result, sizeA+sizeB);
+    return result;
+}
+
+bool ContainsElement(int a[], int size, int value)
+{
+    for(int i =0;i < size; i++)
+    {
+        if(a[i] == value)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void AddVectorDigits(int a[], int b[], int n, int m)
+{
+    int maxSize =0;
+    int diff = abs(n-m);
+    if(n == m)
+    {
+        if(a[0] + b[0] + 1 >= 10)
+            maxSize = n+1;
+        else
+            maxSize = n;
+    }
+    else if (n > m )
+    {
+        maxSize = n;
+    }
+    else 
+    {
+        maxSize = m;
+    }
+
+    int c[maxSize];
+    for(int i =0; i< maxSize; i++)
+        c[i]=0;
+
+    cout<<endl<<"N = " <<n;
+    cout<<endl<<"M = " <<m;
+    for (int i = 0; i < maxSize ; i++)
+    {
+        int operandA = 0;
+        int operandB = 0;
+        if(i < n)
+        {
+            operandA = a[maxSize - (maxSize-n) - i-1];
+            cout<<endl<<(maxSize - (maxSize-n) - i-1 )<<" ";
+        }
+        if(i < m)
+        {
+            operandB = b[maxSize - (maxSize-m) -i-1];
+            cout<<maxSize - (maxSize-m) - i-1;
+        }
+        cout<<endl<<"OperandA : " <<operandA<< "+ OperandB: "<< operandB;
+
+        int result = operandA + operandB;
+        cout<< " Result: " <<result;
+        c[maxSize-i -1] += result % 10;
+        cout<<"Set C ["<<maxSize-i-1<<"] ="<<c[maxSize-i-1];
+        if(result >= 10)
+        {
+            cout<<"Result > 10 => CF on :"<<maxSize-i-2;
+            c[maxSize -i - 2] = 1;
+        }
+        PrintArray(c,maxSize);
+    }
+    cout<<endl;
+    PrintArray(a,n);
+    PrintArray(b,m);
+    PrintArray(c,maxSize);
+
+}
+
+int main()
+{
+    int n;
+    cout<<"First Array size:";
+    cin>>n;
+    int myFirstArray[n];
+    ReadArray(myFirstArray, n);
+
+    int m;
+    cout<<"First Array size:";
+    cin>>m;
+    int mySecondArray[m];
+    ReadArray(mySecondArray, m);
+
+
+    PrintArray(myFirstArray, n);
+    PrintArray(mySecondArray, m);
+
+    AddVectorDigits(myFirstArray, mySecondArray,n,m);
+
+    cin>>n;
+
+    /*int resultArray;
+    resultArray = UnionArrays(myFirstArray,mySecondArray,n,m);
+    cin >>n;/
+    return 0; 
+}

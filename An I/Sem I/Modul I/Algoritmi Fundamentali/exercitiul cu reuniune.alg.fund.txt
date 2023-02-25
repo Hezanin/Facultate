@@ -1,0 +1,246 @@
+#include <iostream.h>
+
+void ReadArray(int someArray[], int size)
+{
+    for (int i = 0; i < size ;i++)
+    {
+        cout<<"Array["<<i<<"]=";
+        cin>>someArray[i];
+    }
+}
+void PrintArray(int someArray[],int size)
+{
+    cout<<"Printing array:"<<endl;
+    for(int i = 0; i<size; i++)
+    {
+        cout<<someArray[i]<< " ";
+    }
+    cout<<endl;
+}
+
+void RemoveDuplicates(int someArray[],int size)
+{
+    cout<<endl<<"Removing duplicates...";
+    for(int i = 0; i<size; i++)
+    {
+
+            for(int j = i+1; j < size; j++)
+            {
+                cout<<endl<<"Comparing : "<<someArray[i] << "-" <<someArray[j];
+                if(someArray[i] == someArray[j])
+                {
+                    someArray[j] = INT_MIN;
+                }
+            }
+
+    }
+    cout<<endl<<"Counting duplicates...";
+    // Count int mins
+    int count = 0;
+    for(int i = 0; i<size; i++)
+    {
+        if(someArray[i] == INT_MIN)
+        {
+            count++;
+        }
+    }
+    cout<<endl;
+    PrintArray(someArray, size);
+
+    cout<<endl<<"Count duplicates ="<<count;
+    int uniqueElemArray[size-count];
+    int j=0;
+    for(int i = 0; i < size; i++)
+    {
+        if(someArray[i] != INT_MIN)
+        {
+            uniqueElemArray[j] = someArray[i];
+            j++;
+        }
+    }
+    PrintArray(uniqueElemArray, size-count);
+}
+
+
+
+int * UnionArrays(int a[], int b[], int sizeA, int sizeB)
+{
+    int result[sizeA + sizeB];
+
+    PrintArray(a, sizeA);
+    PrintArray(b, sizeB);
+    for(int i = 0; i < sizeA + sizeB; i++)
+    {
+        cout<<endl<<i;
+        if(i < sizeA)
+        {
+            result[i] = a[i];
+        }
+        else
+        {
+            result[i] = b[i-sizeA];
+        }
+    }
+    PrintArray(result, sizeA+sizeB);
+    RemoveDuplicates(result, sizeA+sizeB);
+    return result;
+}
+
+bool ContainsElement(int a[], int size, int value)
+{
+    for(int i =0;i < size; i++)
+    {
+        if(a[i] == value)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main()
+{
+    int n;
+    cout<<"First Array size:";
+    cin>>n;
+    int myFirstArray[n];
+    ReadArray(myFirstArray, n);
+
+    int m;
+    cout<<"First Array size:";
+    cin>>m;
+    int mySecondArray[m];
+    ReadArray(mySecondArray, m);
+
+
+    PrintArray(myFirstArray, n);
+    PrintArray(mySecondArray, m);
+
+    int *resultArray;
+    resultArray = UnionArrays(myFirstArray,mySecondArray,n,m);
+    cin >>n;
+    return 0;
+}
+#include <iostream.h>
+
+void ReadArray(int someArray[], int size)
+{
+    for (int i = 0; i < size ;i++)
+    {
+        cout<<"Array["<<i<<"]=";
+        cin>>someArray[i];
+    }
+}
+void PrintArray(int someArray[],int size)
+{
+    cout<<"Printing array:"<<endl;
+    for(int i = 0; i<size; i++)
+    {
+        cout<<someArray[i]<< " ";
+    }
+    cout<<endl;
+}
+
+void RemoveDuplicates(int someArray[],int size)
+{
+    cout<<endl<<"Removing duplicates...";
+    for(int i = 0; i<size; i++)
+    {
+
+            for(int j = i+1; j < size; j++)
+            {
+                cout<<endl<<"Comparing : "<<someArray[i] << "-" <<someArray[j];
+                if(someArray[i] == someArray[j])
+                {
+                    someArray[j] = INT_MIN;
+                }
+            }
+
+    }
+    cout<<endl<<"Counting duplicates...";
+    // Count int mins
+    int count = 0;
+    for(int i = 0; i<size; i++)
+    {
+        if(someArray[i] == INT_MIN)
+        {
+            count++;
+        }
+    }
+    cout<<endl;
+    PrintArray(someArray, size);
+
+    cout<<endl<<"Count duplicates ="<<count;
+    int uniqueElemArray[size-count];
+    int j=0;
+    for(int i = 0; i < size; i++)
+    {
+        if(someArray[i] != INT_MIN)
+        {
+            uniqueElemArray[j] = someArray[i];
+            j++;
+        }
+    }
+    PrintArray(uniqueElemArray, size-count);
+}
+
+
+
+int * UnionArrays(int a[], int b[], int sizeA, int sizeB)
+{
+    int result[sizeA + sizeB];
+
+    PrintArray(a, sizeA);
+    PrintArray(b, sizeB);
+    for(int i = 0; i < sizeA + sizeB; i++)
+    {
+        cout<<endl<<i;
+        if(i < sizeA)
+        {
+            result[i] = a[i];
+        }
+        else
+        {
+            result[i] = b[i-sizeA];
+        }
+    }
+    PrintArray(result, sizeA+sizeB);
+    RemoveDuplicates(result, sizeA+sizeB);
+    return result;
+}
+
+bool ContainsElement(int a[], int size, int value)
+{
+    for(int i =0;i < size; i++)
+    {
+        if(a[i] == value)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main()
+{
+    int n;
+    cout<<"First Array size:";
+    cin>>n;
+    int myFirstArray[n];
+    ReadArray(myFirstArray, n);
+
+    int m;
+    cout<<"First Array size:";
+    cin>>m;
+    int mySecondArray[m];
+    ReadArray(mySecondArray, m);
+
+
+    PrintArray(myFirstArray, n);
+    PrintArray(mySecondArray, m);
+
+    int *resultArray;
+    resultArray = UnionArrays(myFirstArray,mySecondArray,n,m);
+    cin >>n;
+    return 0;
+}
