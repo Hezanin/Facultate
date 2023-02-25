@@ -1,0 +1,241 @@
+% Copyright
+
+implement main
+    open core
+
+    domains
+    culoare = rosu(); verde(); albastru(); alb(); negru().
+    dimensiune = mic(); mare().
+    obiect = obiect(string Nume, culoare Culoare, dimensiune Dimensiune, integer Pret, string Loc1, string Loc2, string Loc3, string Apartament, string Scara, string Bloc, string Strada, string Cartier, string Localitate, string Judet, string Tara, string UniuneaEuropeana, string Continent, string Planeta, string SistemSolar, string Galaxie).
+
+    class facts - bazaDeDateCuClauze
+    seGasesteIn : (obiect Obiect).
+
+clauses
+    run() :-
+        console::init(),
+        file::consult("..\\date.txt", bazaDeDateCuClauze),
+        fail.
+
+        run() :-
+        stdio::write("                                            ---------- Salutare! --------- \n\n"),
+    fail.
+
+    run() :-
+    stdio::write("---------- 1. Afisarea generala a tuturor obiectelor --------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 2. Afisarea obiectelor cu pretul de peste 500 ron ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Pret > 500,
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 3. Afisarea obiectelor cu pretul de sub 500 ron ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Pret < 500,
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 4. Afisarea obiectelor din Scara B ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Scara = "scara B",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 5. Afisarea obiectelor din blocul 10 ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Bloc = "bloc 10",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 6. Afisarea obiectelor din Apartamentul 1 ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Apartament = "apartamentul 1",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 7. Afisarea obiectelor de culoare verde de pe strada Vasile Aaron ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = verde(), Strada = "Vasile Aaron",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 8. Afisarea obiectelor cu pretul de peste 500 ron din cartierul Gusteritei ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Pret > 500 ,Cartier = "Gusteritei",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 9. Afisarea obiectelor cu pretul de sub 500 ron din cartierul Mihai Viteazu ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Pret < 500 ,Cartier = "Mihai Viteazu",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 10. Afisarea obiectelor de culoare negru ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = negru(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 11. Afisarea obiectelor de dimensiune mare ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mare(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 12. Afisarea obiectelor de dimensiune mica ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mic(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 13. Afisarea obiectelor de dimensiune mare ce costa peste 500 ron si se afla in Romania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mare(), Pret > 500, Tara = "Romania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 14. Afisarea obiectelor de dimensiune mare ce costa sub 500 ron si se afla in Romania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mare(), Pret < 500, Tara = "Romania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 15. Afisarea obiectelor de dimensiune mica ce costa peste 500 ron si se afla in Romania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mic(), Pret > 500, Tara = "Romania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 16. Afisarea obiectelor de dimensiune mica ce costa sub 500 ron si se afla in Romania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mic(), Pret < 500, Tara = "Romania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 17. Afisarea obiectelor de dimensiune mare si se afla in Germania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mare(), Tara = "Germania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 18. Afisarea obiectelor ce se afla in Olanda ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Tara = "Olanda",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana fiind pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 19. Afisarea obiectelor ce se afla in California ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Tara = "California",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana fiind pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 20. Afisarea obiectelor ce se afla in Germania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Tara = "Germania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana fiind pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 21. Afisarea obiectelor de culoare albastru ce se afla in Germania ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = albastru(), Tara = "Germania",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana fiind pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 22. Afisarea obiectelor ce se afla pe un continent diferit de Europa ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Continent = "Statele Unite ale Americii",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana fiind pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 23. Afisarea obiectelor de culoare rosu ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = rosu(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 24. Afisarea obiectelor de culoare alb ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = alb(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 25. Afisarea obiectelor de culoare verde ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = verde(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 26. Afisarea obiectelor de culoare albastru ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Culoare = albastru(),
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 27. Afisarea obiectelor de dimensiune mare si se afla pe strada Vasile Aaron ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mare(), Strada = "Vasile Aaron",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 28. Afisarea obiectelor de dimensiune mica si se afla pe strada Mihai Viteazu ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Dimensiune = mic(), Strada = "Mihai Viteazu",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+     run() :-
+    stdio::write("---------- 29. Afisarea obiectelor din Apartamentul 3 ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Apartament = "apartamentul 3",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("---------- 30. Afisarea obiectelor din Apartamentul 2 ---------- \n"),
+    seGasesteIn(obiect(Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie)),
+    Apartament = "apartamentul 2",
+     stdIO::writef("Obiectul % de culoare % de dimensiunea % si pretul de % ron, se afla pe % in % din %. Acesta se afla in % cu locatia urmatoare: %, % de pe strada % din cartierul % aflandu-se in localitatea %, judetul %, tara %. Aceasta tara % in Uniunea Europeana de pe continentul % si planeta %. Aceasta planeta % in Sistemul Solar apartinand galaxiei %. \n\n", Nume, Culoare, Dimensiune, Pret, Loc1, Loc2, Loc3, Apartament, Scara, Bloc, Strada, Cartier, Localitate, Judet, Tara, UniuneaEuropeana, Continent, Planeta, SistemSolar, Galaxie),
+    fail.
+
+    run() :-
+    stdio::write("                               -------------------SFARSIT--------------------\n"),
+    stdio::write("                    -------------------Programul a rulat cu succes!--------------------\n").
+
+
+end implement main
+
+goal
+    mainExe::run(main::run).

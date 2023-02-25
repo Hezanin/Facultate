@@ -1,0 +1,33 @@
+// Add Student to Students List
+        public void AddStudent(string name, byte age, int id, byte grade)
+        {
+            Student TEMPORARY = new Student(name, age, id, grade);
+            Students.Add(TEMPORARY);
+        }
+
+        // Delete Student from Students List
+        public void DeleteStudentAtIndex(int index)
+        {
+            Students.RemoveAt(index);
+        }
+
+        // Edit Student grade at specific index
+        public void EditStudentNameAtIndex(int index, string NewName)
+        {           
+            Students.ElementAt(index).Name = NewName;           
+        }
+
+        public void EditStudentAgeAtIndex(int index, byte NewAge)
+        {           
+            Students.ElementAt(index).Age = NewAge;            
+        }
+
+        public void EditStudentIdAtIndex(int index, int NewId)
+        {           
+            Students.ElementAt(index).Id = NewId;
+        }
+
+        public void EditStudentGradeAtIndex(int index, byte NewGrade)
+        {
+            Students.ElementAt(index).Grade = NewGrade;
+        }

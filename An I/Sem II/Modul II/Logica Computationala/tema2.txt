@@ -1,0 +1,160 @@
+obiect
+clasa -
+greutate -
+dimensiune -
+pret
+viata
+vulnerabilitate
+scalare
+raritate
+abilitate
+unicitate
+fizical
+magie
+foc
+lumina
+sfant
+critical
+pasiva
+upgradabila
+efect
+stamina
+mana
+locatie 1
+locatie 2
+locatie 3
+locatie 4
+locatie 5
+locatie 6
+locatie 7
+locatie 8
+jocul
+echipa
+departamentul
+compania
+strada
+orasul
+tara
+continentul
+planeta
+galaxia
+
+obiect:
+string Nume,
+clasa Clasa, 
+greutate Greutate, 
+dimensiune Dimensiune, 
+integer FP,
+integer Stamina, 
+integer Mana, 
+integer Pret, 
+integer Viata, 
+integer Fizical, 
+integer Magie, 
+integer Foc, 
+integer Lumina, 
+integer Sfant, 
+integer Critical, 
+string Vulnerabilitate, 
+string Scalare, 
+string Raritate, 
+string Unicitate, 
+string Pasiva, 
+string Upgradabila, 
+string Efect, 
+string Locatie1, 
+string Locatie2, 
+string Locatie3, 
+string Locatie4, 
+string Locatie5, 
+string Locatie6, 
+string Locatie7, 
+string Locatie8,
+string Locatie9, 
+string Joc, 
+string Echipa, 
+string Departamentul,
+string Compania
+string Strada, 
+string Orasul, 
+string Tara, 
+string Continentul, 
+string Planeta, 
+string Galaxia
+string Locatie
+
+
+ seGaseste(obiect(
+"BloodHounds Fang", // string Nume
+arma(), // clasa Clasa
+ mare(), // greutate Greutate
+ lung(), // dimensiune Dimensiune
+ 10, // integer FP
+22, // integer Stamina
+ 101 // integer Mana
+,45 // integer Pret
+,56, // integer Fizical
+78, // integer Magie
+12, // integer Foc
+789 // integer Lumina
+,12, // integer Sfant
+11, // integer Critical
+"niciuna", // string Viata
+"forta", // string Scalare
+ "scazuta" // string Vulnerabilitate
+,"unic" // string Raritate
+,"bloodloss" // string Pasiva
+,"da" // string Unicitate
+,"niciunul" // string Upgradabila
+, "RoundTableHold", // string Efect
+ "Mistwood" // string Locatie1
+,"Ainsel River" // string Locatie2
+,"Weeping Peninsula" // string Locatie3
+,"Caelid" // string Locatie4
+,"AltusPlateau" // string Locatie5
+,"RayaLucariaAcademy" // string Locatie6
+,"RedmaneCastle" // string Locatie7
+, "EldenRing" // string Locatie8
+,"developeri" // string Joc
+,"gaming" // string Echipa
+,"fromSoftware" // string Departamentul
+,"Ichigo_Sasakuza", // string Companie
+"Tokyo" // string Strada
+,"Japan" // string Orasul
+,"Asia" // string Tara
+,"Terra" // string Continentul
+,"Calea_Lactee")). // string Planeta
+                   // string Galaxie
+ obiect(string Nume, clasa Clasa, greutate Greutate, dimensiune Dimensiune, integer FP ,integer Stamina, integer Mana, integer Pret, integer Fizical, integer Magie, integer Foc, integer Lumina, integer Sfant, integer Critical, string Viata ,string Vulnerabilitate, string Scalare, string Raritate, string Unicitate, string Pasiva, string Upgradabila, string Efect, string Locatie1, string Locatie2, string Locatie3, string Locatie4, string Locatie5, string Locatie6, string Locatie7, string Locatie8, string Joc, string Echipa, string Departamentul, string Companie ,string Strada, string Orasul, string Tara, string Continentul, string Planeta, string Galaxia)
+clauses
+    run() :-
+        console::init(),
+        file::consult("..\\persoane.txt", fapteFamilia),
+
+        stdio::write("\n"),
+        stdio::write("Interogare(1/40)\n"),
+        stdio::write("Lista fii: \n"),
+        fiu(X, Y),
+            stdio::write(X, " este fiul lui:  ", Y , "\n"),
+        fail.
+
+    run() :-
+        stdio::write("\n"),
+        stdio::write("Interogare(2/40)\n"),
+        stdio::write("Lista fiice: \n"),
+        fiica(X, Y),
+            stdio::write(X, " este fiica lui:  ", Y , "\n"),
+        fail.
+
+run() :-
+        stdio::write("\n").
+
+end implement main
+
+goal
+    console::runUtf8(main::run).
+
+
+
+
+seGaseste(obiect("BloodHounds Fang", arma(), mare(), lung(), 10, 22, 101,45,56,78,12,789,12,11,"niciuna", "forta", "scazuta","unic","bloodloss","da","niciunul","Limgrave","RoundTableHold", "Mistwood","Ainsel River","Weeping Peninsula","Caelid","AltusPlateau","RayaLucariaAcademy","RedmaneCastle", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea_Lactee", "Univers" )).

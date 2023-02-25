@@ -1,0 +1,219 @@
+% Copyright
+
+implement main
+    open core
+
+class predicates
+    factorial : (integer N, integer F) procedure (i,o).
+clauses
+    factorial(0,F) :- F = 1,  !.
+    factorial(N,F) :-
+        factorial(N-1, F1),
+        F = N * F1.
+
+clauses
+        run():-
+            console::init(),
+            X = 5,
+            factorial(X,F),
+            stdio::writef("%! = %", X,F),
+            succeed().
+
+end implement main
+
+goal
+    mainExe::run(main::run).
+
+/////////
+
+
+implement main
+    open core
+
+class predicates
+    suma : (integer N, integer S) procedure (i,o).
+clauses
+    suma(0,S) :- S = 0, !.
+    suma(N,S) :-
+    suma(N - 1, S1),
+    S = N + S1.
+
+clauses
+    run():-
+    console::init(),
+    X = 5,
+    suma(X,S),
+        stdio::writef("Suma din intervalul [1, %] = %", X,S),
+        succeed().
+end implement main
+goal
+    mainExe::run(main::run).
+
+
+///////////////////
+
+
+implement main
+    open core
+
+class predicates
+    doiLaPutere : (integer N, integer P) procedure (i,o).
+
+clauses
+    doiLaPutere(0, P)  :- P = 1, !.
+    doiLaPutere(N,P) :-
+        doiLaPutere(N - 1, P1),
+        P = 3 * P1.
+
+clauses
+    run():-
+        console::init(),
+        X = 3,
+        doiLaPutere(X, DoiLaPutere),
+        stdio::writef("3^% = %", X,DoiLaPutere),
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+
+///////////////////
+
+implement main
+    open core
+
+class predicates
+    sumaCifre : (integer N, integer S) procedure (i,o).
+
+clauses
+    sumaCifre(0,S) :- S = 0,   !.
+    sumaCifre(N,S) :-
+        sumaCifre(N div 10, S1),
+        S = N mod 10 + S1.
+
+clauses
+    run():-
+    console::init(),
+    X = 1234,
+    sumaCifre(X,Suma),
+        stdio::writef("Suma cifrelor numarului % = %", X, Suma),
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+///////////////////
+
+implement main
+    open core
+
+class predicates
+    fibonacci : (integer N, integer F) procedure (i,o).
+
+clauses
+    fibonacci(1, F) :- F = 1,  !.
+    fibonacci(0,F) :- F = 0,   !.
+    fibonacci(N,F) :-
+        fibonacci(N - 1, F1),
+        fibonacci(N - 2, F2),
+        F = F1 + F2.
+clauses
+    run():-
+    console::init(),
+    X = 6,
+    fibonacci(X, Fib),
+        stdio::writef("Fib(%) = %",X,Fib),
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+///////////////////
+
+implement main
+    open core
+
+class predicates
+    factorial : (integer N, integer F) procedure (i,o).
+    suma : (integer N, integer S) prcedure (i,o).
+clauses
+    factorial(1,F) :- F = 1, !.
+    factorial(0,F) :- F = 0, !.
+    factorial(N,F) :-
+        factorial(N- 1, F1),
+        factorial(N - 2,F2),
+        F = F1+F2.
+    
+    suma(0, S) :- S = 0, !.
+    factorial(N,F1),
+    suma(N,S) :-
+        suma(N - 1, S1) :-
+        S = F1 + S1.
+clauses
+    run():-
+    console::init(),
+    X = 3,
+    suma(X,)
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+////// ALG ITERATIVI //////
+
+
+implement main
+    open core
+
+class predicates
+    calculateDouble : (integer N, integer D) procedure (i,o).
+
+clauses
+    calculateDouble(N,D) :-
+    D = N * 2.
+
+clauses
+    run():-
+    console::init(),
+    X = 3,
+    calculateDouble(X, D),
+    stdio::writef("% dublat este %", X,D),
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+
+///////////////////
+
+implement main
+    open core
+
+class predicates
+    calculateSum : (integer X, integer Y, integer S) procedure (i,i,o).
+
+clauses
+    calculateSum(X,Y,S) :-
+    S = X + Y.
+
+clauses
+    run():-
+    console::init(),
+    X = 3,
+    Y = 1,
+    calculateSum(X,Y,S),
+    stdio::writef("% + % = %", X,Y,S),
+        succeed().
+
+end implement main
+goal
+mainExe::run(main::run).
+
+///////////////
+
+

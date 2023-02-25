@@ -1,0 +1,22 @@
+clauses
+    seGaseste(obiect("BloodHounds Fang", arma(), mare(), lung(), 1000,22,101,450,56,78,12,789,12,11,"niciuna", "forta", "da","unic",
+    "bloodloss","da","niciunul","Limgrave","RoundTableHold", "Mistwood","Ainsel River","Weeping Peninsula","Caelid","AltusPlateau",
+    "RayaLucariaAcademy","RedmaneCastle", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Long Sword", arma(), medie(), scurt(), 1100,23,102,2305,0,71,15,7,1,1,"niciuna", "dexteritate", "da","unic",
+    "nimic","da","niciunul","Cathedral of the Forsaken","Deeproot Depths", "Grand Cloister","Ainsel River","Lake of Rot","Caelid","AltusPlateau",
+    "RayaLucariaAcademy","RedmaneCastle", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Moonlight Sword", arma(), mare(), lung(), 456,3,12,0,60,1,1,7,156,1,"niciuna", "inteligenta", "da","unic",
+    "Bubble","da","niciunul","Cathedral of the Forsaken","Deeproot Depths", "Grand Cloister","Ainsel River","Lake of Rot","Caelid","AltusPlateau",
+    "RayaLucariaAcademy","RedmaneCastle", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Starscourge Colossal Sword", arma(), mare(), lung(), 1,34,120,0,600,18,11,76,136,10,"niciuna", "inteligenta", "da","unic",
+    "Bubble","da","niciunul","Nokstella, Eternal City","Uhl Palace Ruins", "Siofra River","Ainsel River","Lake of Rot","Caelid","AltusPlateau",
+    "RayaLucariaAcademy","RedmaneCastle", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Weathered Straight Sword", arma(), medie(), lung(), 111,340,10,0,670,180,0,0,0,10,"niciuna", "forta", "da","unic",
+    "Square Off","da","niciunul","Church of Dragon Comunion","Warmasters Shack", "Minor Erdtree","Groveside Cave","Gatefront Ruins","Murkwater Cave","Smoldering Church",
+    "Stranded Graveyard","Stormhill Shack", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Cane Sword", arma(), medie(), lung(), 11,3,0,0,70,11,0,0,50,10,"niciuna", "dexteritate", "da","unic",
+    "Square Off","da","niciunul","Church of Dragon Comunion","Warmasters Shack", "Minor Erdtree","Forlorn Hound Evergaol","Gatefront Ruins","Murkwater Cave","Stormfoot Catacombs",
+    "Witchbane Ruins","Stormhill Shack", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).
+   seGaseste(obiect("Warhakws Talon", arma(), medie(), lung(), 245,30,9,0,0,181,0,0,540,10,"niciuna", "credinta", "da","unic",
+    "Spinning Slash","da","niciunul","Church of Dragon Comunion","Warmasters Shack", "Minor Erdtree","Forlorn Hound Evergaol","Gatefront Ruins","Murkwater Cave","Stormfoot Catacombs",
+    "Witchbane Ruins","Bridge of Sacrifice", "EldenRing","developeri","gaming","fromSoftware","Ichigo_Sasakuza","Tokyo","Japan","Asia","Terra","Calea Lactee", "Univers")).

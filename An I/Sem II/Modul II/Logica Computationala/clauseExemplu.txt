@@ -1,0 +1,61 @@
+clauses
+    seGasesteIn(obiect("Mar", verde(), mare(), 5, "farfurie", "frigider", "bucatarie", "apartamentul 1", "scara C", "bloc 14", "Vasile Aaron", "Marcus", "Sibiu",
+    "Sibiu", "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Banana", negru(), mare(), 7, "cos", "masa", "bucatarie", "apartamentul 2", "scara B", "bloc 10", "Soimului", "Selimbar", "Haag", "Amsterdam",
+    "Olanda", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Telefon", alb(), mic(), 2500, "sertar", "noptiera", "camera", "apartamentul 3", "scara A", "bloc 9", "Mihai Viteazu", "Gusteritei", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Tableta", negru(), mare(), 1250, "sertar", "noptiera", "camera", "apartamentul 1", "scara B", "bloc 10", "Soimului", "Gusteritei", "Dresden", "Bremen",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Tricou", albastru(), mare(), 150, "sertar", "sifonier", "camera", "apartamentul 3", "scara C", "bloc 10", "Vasile Aaron", "Mihai Viteazu", "Kiel", "Bremen",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Mouse", rosu(), mic(), 300, "sertar", "birou", "camera", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Marcus", "Florida", "Detroit",
+    "California", "nu se afla", "Statele Unite ale Americii", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Tastatura", negru(), mic(), 400, "sertar", "birou", "camera", "apartamentul 1", "scara B", "bloc 10", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+     seGasesteIn(obiect("Laptop", negru(), mare(), 6000, "sertar", "birou", "sufragerie", "apartamentul 2", "scara B", "bloc 9", "Vasile Aaron", "Marcus", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Mousepad", negru(), mare(), 100, "sertar", "birou", "sufragerie", "apartamentul 2", "scara C", "bloc 10", "Vasile Aaron", "Marcus", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Casti", negru(), mare(), 700, "sertar", "birou", "camera", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Marcus", "New York", "Texas",
+    "California", "nu se afla", "Statele Unite ale Americii", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Ochelari", negru(), mic(), 200, "sertar", "birou", "camera", "apartamentul 1", "scara B", "bloc 10", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Hanorac", rosu(), mare(), 150, "sertar", "sifonier", "camera", "apartamentul 3", "scara C", "bloc 10", "Vasile Aaron", "Mihai Viteazu", "Dortmund", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Pantaloni", albastru(), mare(), 100, "sertar", "sifonier", "camera", "apartamentul 1", "scara B", "bloc 9", "Vasile Aaron", "Mihai Viteazu", "Hamburg", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Ceas", negru(), mic(), 450, "sertar", "birou", "living", "apartamentul 1", "scara B", "bloc 10", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Portofel", negru(), mic(), 300, "sertar", "birou", "camera", "apartamentul 1", "scara A", "bloc 9", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Caiet", albastru(), mic(), 5, "sertar", "birou", "sufragerie", "apartamentul 2", "scara A", "bloc 14", "Vasile Aaron", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Ghiozdan", negru(), mare(), 125, "sertar", "birou", "sufragerie", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Stilou", verde(), mic(), 50, "sertar", "birou", "camera", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Pix", albastru(), mic(), 5, "sertar", "birou", "camera", "apartamentul 1", "scara A", "bloc 9", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Perna", alb(), mare(), 70, "sertar", "sifonier", "camera", "apartamentul 3", "scara C", "bloc 10", "Vasile Aaron", "Mihai Viteazu", "Munchen", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Plapuma", alb(), mare(), 150, "sertar", "sifonier", "camera", "apartamentul 2", "scara A", "bloc 10", "Soimului", "Mihai Viteazu", "Stuttgart", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Adidasi", rosu(), mare(), 600, "sertar", "dulap", "camera", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Marcus", "Sibiu", "Sibiu",
+    "California", "nu se afla", "Statele Unite ale Americii", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Papuci", negru(), mic(), 80, "sertar", "sifonier", "sufragerie", "apartamentul 1", "scara C", "bloc 14", "Mihai Viteazu", "Gusteritei", "Concord", "Arizona",
+    "California", "nu se afla", "Statele Unite ale Americii", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Costum", negru(), mare(), 800, "umeras", "sifonier", "camera", "apartamentul 3", "scara C", "bloc 10", "Vasile Aaron", "Mihai Viteazu", "Duisburg", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Geaca", albastru(), mare(), 400, "umeras", "sifonier", "living", "apartamentul 2", "scara B", "bloc 10", "Soimului", "Gusteritei", "Duisburg", "Berlin",
+    "Germania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Punga", alb(), mic(), 2, "sertar", "birou", "camera", "apartamentul 2", "scara A", "bloc 14", "Mihai Viteazu", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Chei", negru(), mic(), 20, "cos", "masa", "bucatarie", "apartamentul 2", "scara B", "bloc 10", "Soimului", "Selimbar", "Haag", "Amsterdam",
+    "Olanda", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Sticla", alb(), mare(), 5, "sertar", "frigider", "bucatarie", "apartamentul 1", "scara C", "bloc 14", "Vasile Aaron", "Marcus", "Sibiu",
+    "Sibiu", "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Calculator", negru(), mare(), 5000, "suport", "birou", "camera", "apartamentul 1", "scara A", "bloc 9", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).
+    seGasesteIn(obiect("Monitor", negru(), mare(), 800, "suport", "birou", "camera", "apartamentul 2", "scara C", "bloc 10", "Soimului", "Selimbar", "Sibiu", "Sibiu",
+    "Romania", "se afla", "Europa", "Terra", "se afla", "Calea Lactee")).

@@ -1,0 +1,98 @@
+ class predicates
+        stramos : (string Stramos, string Copil)nondeterm anyflow.
+    clauses
+        stramos(Stramos, Copil) :-
+        persoana(Stramos, baiat),
+        tati(Tata, Copil),
+        tati(Bunic, Tata),
+        tati(Stramos, Bunic).
+
+    class predicates
+        stramoasa : (string Stramoasa, string Copil) nondeterm anyflow.
+    clauses
+        stramoasa(Stramoasa, Copil) :-
+        tati(Tata,Copil),
+        tati(Bunic, Tata),
+        tati(Stramos, Bunic),
+        nume_sot(Stramos, Stramoasa).
+
+    class predicates
+        tata : (string Tata, string Copil).
+    clauses
+        tata(Tata, Copil) :-
+        tati(Tata,Copil).
+
+    class predicates
+        bunic : (string Bunic, string Copil) nondeterm anyflow.
+    clauses
+        bunic(Bunic, Copil) :-
+        tati(Tata, Copil),
+        tati(Bunic, Tata).
+
+    class predicates
+        bunica : (string Bunica, string Copil)nondeterm anyflow.
+    clauses
+        bunica(Bunica,Copil) :-
+        tati(Sot, Copil),
+        nume_sot(Sot, Bunica).
+
+    class predicates
+        mama : (string Mama, string Copil)nondeterm anyflow.
+    clauses
+        mama(Mama,Copil) :-
+        tati(Tata, Copil),
+        nume_sot(Tata,Mama).
+
+    class predicates
+        fiu : (string Fiu, string Parinte)nondeterm anyflow.
+    clauses
+        fiu(Fiu,Parinte) :-
+        tati(Parinte, Fiu),
+        persoana(Fiu, baiat).
+
+    class predicates
+        fiica : (string Fiica, string Parinte)nondeterm anyflow.
+    clauses
+        fiica(Fiica, Parinte) :-
+        tati(Parinte,Fiica),
+        persoana(Fiica, fata).
+
+    class predicates
+        verisor : (string Verisor, string Persoana)nondeterm anyflow.
+    clauses
+        verisor(Verisor, Persoana) :-
+        persoana(Verisor, baiat),
+        tati(Tata_1, Persoana),
+        tati(Tata_2, Verisor),
+        frate(Tata_1, Tata_2);
+        frate(Tata_2, Tata_1).
+
+    class predicates
+        verisoara : (string Verisoasa, string Persoana)nondeterm anyflow.
+    clauses
+        verisoara(Verisoara, Persoana) :-
+        persoana(Verisoara, fata),
+        tati(Tata_1, Persoana),
+        tati(Tata_2, Verisoara),
+        frate(Tata_1, Tata_2);
+        frate(Tata_2, Tata_1).
+
+    class predicates
+        verisor_tata : (string Verisor, string Persoana)nondeterm anyflow.
+    clauses
+        verisor_tata(Verisor, Persoana) :-
+        tati(Tati_1, Persoana),
+        tati(Tati_2, Verisor),
+        frate(Tata_1, Tata_2);
+        frate(Tata_2, Tata_1).
+
+    class predicates
+        verisor_mama : (string Verisor, string Persoana)nondeterm anyflow.
+    clauses
+        verisor_mama(Verisor, Persoana) :-
+        tati(Tata_1, Persoana),
+        tati(Tata_2, Verisor),
+        nume_sot(Tata_1, Mama_1),
+        nume_sot(Tata_2, Mama_2),
+        frate(Mama_1, Mama_2);
+        frate(Mama_2, Mama_1).

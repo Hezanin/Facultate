@@ -1,0 +1,67 @@
+clauses
+     persoana("Razvan", baiat).
+     persoana("David", baiat).
+     persoana("Rubenica", baiat).
+     persoana("Rubenas", baiat).
+     persoana("Elisei", baiat).
+     persoana("Ion",  baiat).
+     persoana("Vasile",  baiat).
+     persoana("Zaharia",  baiat).
+     persoana("Eremia",  baiat).
+     persoana("Alexander", baiat).
+     persoana("Klaus", baiat).
+     persoana("Brancoveanu", baiat).
+     persoana("Constantin", baiat).
+     persoana("Radu", baiat).
+     persoana("Thomas", baiat).
+     persoana("Ecaterina", fata).
+     persoana("Katherine", fata).
+     persoana("Niculina", fata).
+     persoana("Alexandra", fata).
+     persoana("Mary", fata).
+
+     tati("Ion", "Rubenas").
+     tati("Ion","Katherine").
+     tati("Vasile","Niculina").
+     tati("Zaharia","David").
+     tati("Eremia", "Elisei").
+     tati("Constantin","Ion").
+     tati("Brancoveanu","Radu").
+     tati("Eminovici","Alexander").
+     tati("Tanase","Brancoveanu").
+     tati("Rubenas","Eremia").
+     tati("Thomas", "Constantin").
+     tati("Razvan","Thomas").
+     tati("Elijah","Klaus").
+     tati("Bobeanu", "Mary")
+
+     frate("Bobeanu","Razvan").
+     frate("Alexandru","David").
+     frate("Iacob","Rubenica").
+     frate("Constantin","Brancoveanu").
+     frate("Eminovici","Tanase").
+     frate("Ion","Vasile").
+     frate("Rubenas","Mariana").
+     frate("Elisei","Sonia").
+     frate("David","Roxana").
+     frate("Margareta","Constanta").
+     frate("Elena", "Cleopatra").
+     frate("Margareta","Phoebe").
+
+     nume_sot("Ion","Margareta").
+     nume_sot("Vasile","Ana").
+     nume_sot("Zaharia","Elena").
+     nume_sot("Elijah","Constanta").
+     nume_sot("Constantin","Verginia").
+     nume_sot("Brancoveanu","Dana").
+     nume_sot("Eminovici","Ecaterina").
+     nume_sot("Tanase","Kaith").
+     nume_sot("Rubenas","Laura").
+     nume_sot("Eremia","Georgiana").
+     nume_sot("Razvan","Fanica").
+     nume_sot("Thomas", "Rebecca").
+
+
+
+
+
