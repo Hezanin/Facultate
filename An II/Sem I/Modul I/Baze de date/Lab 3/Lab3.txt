@@ -1,0 +1,177 @@
+Microsoft Windows [Version 10.0.19044.2006]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hezan>cd/
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -p -u root -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show databases' at line 2
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| teste              |
++--------------------+
+6 rows in set (0.010 sec)
+
+MariaDB [(none)]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [(none)]> use teste;
+Database changed
+MariaDB [teste]> show columns from sg3;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| nrc     | int(2)   | YES  |     | NULL    |       |
+| datan   | date     | YES  |     | NULL    |       |
+| nume    | tinytext | YES  |     | NULL    |       |
+| notaidb | int(2)   | YES  |     | NULL    |       |
+| notaso  | int(2)   | YES  |     | NULL    |       |
+| obs     | tinytext | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+6 rows in set (0.010 sec)
+
+MariaDB [teste]> select * from sg3
+    ->
+    -> show columns from sg3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show columns from sg3' at line 3
+MariaDB [teste]> show columns from sg3;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| nrc     | int(2)   | YES  |     | NULL    |       |
+| datan   | date     | YES  |     | NULL    |       |
+| nume    | tinytext | YES  |     | NULL    |       |
+| notaidb | int(2)   | YES  |     | NULL    |       |
+| notaso  | int(2)   | YES  |     | NULL    |       |
+| obs     | tinytext | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+6 rows in set (0.007 sec)
+
+MariaDB [teste]> select * from sg3;
++------+------------+----------+---------+--------+------+
+| nrc  | datan      | nume     | notaidb | notaso | obs  |
++------+------------+----------+---------+--------+------+
+|    1 | 2000-11-14 | Nicoleta |      10 |      8 | Ceva |
++------+------------+----------+---------+--------+------+
+1 row in set (0.008 sec)
+
+MariaDB [teste]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [teste]> use teste;
+Database changed
+MariaDB [teste]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [teste]> use teste;
+Database changed
+MariaDB [teste]> show columns from sg3;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| nrc     | int(2)   | YES  |     | NULL    |       |
+| datan   | date     | YES  |     | NULL    |       |
+| nume    | tinytext | YES  |     | NULL    |       |
+| notaidb | int(2)   | YES  |     | NULL    |       |
+| notaso  | int(2)   | YES  |     | NULL    |       |
+| obs     | tinytext | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+6 rows in set (0.007 sec)
+
+MariaDB [teste]> alter table sg3 change nrc id_nrc int(2) auto_increment not null primary key;
+Query OK, 1 row affected (0.035 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+MariaDB [teste]> show columns from sg3;
++---------+----------+------+-----+---------+----------------+
+| Field   | Type     | Null | Key | Default | Extra          |
++---------+----------+------+-----+---------+----------------+
+| id_nrc  | int(2)   | NO   | PRI | NULL    | auto_increment |
+| datan   | date     | YES  |     | NULL    |                |
+| nume    | tinytext | YES  |     | NULL    |                |
+| notaidb | int(2)   | YES  |     | NULL    |                |
+| notaso  | int(2)   | YES  |     | NULL    |                |
+| obs     | tinytext | YES  |     | NULL    |                |
++---------+----------+------+-----+---------+----------------+
+6 rows in set (0.008 sec)
+
+MariaDB [teste]> select * from sg3;
++--------+------------+----------+---------+--------+------+
+| id_nrc | datan      | nume     | notaidb | notaso | obs  |
++--------+------------+----------+---------+--------+------+
+|      1 | 2000-11-14 | Nicoleta |      10 |      8 | Ceva |
++--------+------------+----------+---------+--------+------+
+1 row in set (0.001 sec)
+
+MariaDB [teste]> insert into sg3 (nume,notaidb,notaso,obs) values(1,'Nicoleta',10,8,'Ceva');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [teste]> insert into sg3 (nume,notaidb,notaso,obs) values(2,'Nicoleta',10,8,'Ceva');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [teste]> insert into sg3 (nume,notaidb,notaso,obs) value('George',8,10,'Altceva');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [teste]> insert into sg3 (nume,notaidb,notaso,obs) value('Alexe',2,5,'Celalalt');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [teste]> select * from sg3;
++--------+------------+----------+---------+--------+----------+
+| id_nrc | datan      | nume     | notaidb | notaso | obs      |
++--------+------------+----------+---------+--------+----------+
+|      1 | 2000-11-14 | Nicoleta |      10 |      8 | Ceva     |
+|      2 | NULL       | George   |       8 |     10 | Altceva  |
+|      3 | NULL       | Alexe    |       2 |      5 | Celalalt |
++--------+------------+----------+---------+--------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [teste]> select * from sg3 where nume like '%le%';
++--------+------------+----------+---------+--------+----------+
+| id_nrc | datan      | nume     | notaidb | notaso | obs      |
++--------+------------+----------+---------+--------+----------+
+|      1 | 2000-11-14 | Nicoleta |      10 |      8 | Ceva     |
+|      3 | NULL       | Alexe    |       2 |      5 | Celalalt |
++--------+------------+----------+---------+--------+----------+
+2 rows in set (0.007 sec)
+
+MariaDB [teste]> update sg3 set datan='04/11/10' where nume='George';
+Query OK, 1 row affected (0.014 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [teste]> update sg3 set datan='06/01/14' where nume='Alexe';
+Query OK, 1 row affected (0.014 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [teste]> select * from sg3;
++--------+------------+----------+---------+--------+----------+
+| id_nrc | datan      | nume     | notaidb | notaso | obs      |
++--------+------------+----------+---------+--------+----------+
+|      1 | 2000-11-14 | Nicoleta |      10 |      8 | Ceva     |
+|      2 | 2004-11-10 | George   |       8 |     10 | Altceva  |
+|      3 | 2006-01-14 | Alexe    |       2 |      5 | Celalalt |
++--------+------------+----------+---------+--------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [teste]> select * from sg3 where notaso like 10;
++--------+------------+--------+---------+--------+---------+
+| id_nrc | datan      | nume   | notaidb | notaso | obs     |
++--------+------------+--------+---------+--------+---------+
+|      2 | 2004-11-10 | George |       8 |     10 | Altceva |
++--------+------------+--------+---------+--------+---------+
+1 row in set (0.000 sec)
+
+MariaDB [teste]>

@@ -1,0 +1,317 @@
+Microsoft Windows [Version 10.0.19044.2006]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hezan>cd/
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -p -u root localhost
+Enter password:
+ERROR 1049 (42000): Unknown database 'localhost'
+
+C:\xampp\mysql\bin>mysql -p -u root -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| itreparatii        |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| teste              |
++--------------------+
+7 rows in set (0.003 sec)
+
+MariaDB [(none)]> use itreparatii;
+Database changed
+MariaDB [itreparatii]> show tables;
++-----------------------+
+| Tables_in_itreparatii |
++-----------------------+
+| angajati              |
+| clienti               |
+| reparatii             |
++-----------------------+
+3 rows in set (0.005 sec)
+
+MariaDB [itreparatii]>
+MariaDB [itreparatii]> show columns from angajati;
++---------------+----------+------+-----+---------+----------------+
+| Field         | Type     | Null | Key | Default | Extra          |
++---------------+----------+------+-----+---------+----------------+
+| id_angajat    | int(2)   | NO   | PRI | NULL    | auto_increment |
+| angajat       | tinytext | YES  |     | NULL    |                |
+| adresa        | tinytext | YES  |     | NULL    |                |
+| telefon       | tinytext | YES  |     | NULL    |                |
+| data_angajare | date     | YES  |     | NULL    |                |
+| specializare  | tinytext | YES  |     | NULL    |                |
+| salar         | int(2)   | YES  |     | NULL    |                |
++---------------+----------+------+-----+---------+----------------+
+7 rows in set (0.009 sec)
+
+MariaDB [itreparatii]> select * from angajati where (data_angajare BETWEEN '2002/03/01' AND '2005/04/01') AND specializare in ('informatica','electronica');
++------------+---------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat       | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+---------------+---------------------------+---------------+---------------+--------------+-------+
+|          2 | Nicoleta Radu | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
++------------+---------------+---------------------------+---------------+---------------+--------------+-------+
+1 row in set (0.009 sec)
+
+MariaDB [itreparatii]> select * from angajati where (data_angajare BETWEEN '2002/03/01' AND '2020/04/01') AND specializare in ('informatica','electronica');
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat          | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+|          2 | Nicoleta Radu    | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
+|          3 | Mos Martin       | Str. Escu nr.90           | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
+|          4 | Razvan Antonescu | Str. Eminescu nr.4        | 0791.91.18.15 | 2009-11-20    | electronica  |  4900 |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+3 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> show columns from reparatii;
++----------------+----------+------+-----+---------+----------------+
+| Field          | Type     | Null | Key | Default | Extra          |
++----------------+----------+------+-----+---------+----------------+
+| id_reparatie   | int(2)   | NO   | PRI | NULL    | auto_increment |
+| data_reparatie | date     | YES  |     | NULL    |                |
+| reparatie      | tinytext | YES  |     | NULL    |                |
+| an_fabricatie  | date     | YES  |     | NULL    |                |
+| diagnostic     | tinytext | YES  |     | NULL    |                |
+| tarif          | int(5)   | YES  |     | NULL    |                |
+| id_angajat     | int(2)   | YES  |     | NULL    |                |
+| id_client      | int(4)   | YES  |     | NULL    |                |
++----------------+----------+------+-----+---------+----------------+
+8 rows in set (0.007 sec)
+
+MariaDB [itreparatii]> select * from reparatii;
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie     | an_fabricatie | diagnostic  | tarif | id_angajat | id_client |
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+|            1 | 2004-11-14     | schimbare ssd | 2021-01-27    | ssd stricat |   450 |          1 |         1 |
+|            2 | 2005-10-13     | schimbare hdd | 2022-02-26    | hdd stricat |   550 |          2 |         2 |
+|            3 | 2009-09-12     | schimbare cpu | 2020-03-25    | cpu stricat |   150 |          3 |         3 |
+|            4 | 0000-00-00     | schimbare gpu | 2019-04-25    | gpu stricat |   780 |          4 |         4 |
+|            5 | 2008-07-10     | schimbare fan | 2011-02-21    | fan stricat |   785 |          5 |         5 |
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,_id_client) values('2007/06/09','instalare OS','2022/06/02','performanta scazuta',456,6,6);
+ERROR 1054 (42S22): Unknown column '_id_client' in 'field list'
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,id_client) values('2007/06/09','instalare OS','2022/06/02','performanta scazuta',456,6,6);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,id_client) values('2005/07/19','instalare OS','2022/05/22','performanta scazuta',496,7,7);
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,id_client) values('2004/01/01','instalare OS','2002/07/29','performanta scazuta',296,8,8);
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,id_client) values('2003/02/02','instalare OS','2001/12/30','performanta scazuta',181,9,9);
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into reparatii (data_reparatie,reparatie,an_fabricatie,diagnostic,tarif,id_angajat,id_client) values('2002/05/05','instalare OS','2000/12/31','performanta scazuta',786,10,10);
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> select * from reparatii;
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie     | an_fabricatie | diagnostic          | tarif | id_angajat | id_client |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+|            1 | 2004-11-14     | schimbare ssd | 2021-01-27    | ssd stricat         |   450 |          1 |         1 |
+|            2 | 2005-10-13     | schimbare hdd | 2022-02-26    | hdd stricat         |   550 |          2 |         2 |
+|            3 | 2009-09-12     | schimbare cpu | 2020-03-25    | cpu stricat         |   150 |          3 |         3 |
+|            4 | 0000-00-00     | schimbare gpu | 2019-04-25    | gpu stricat         |   780 |          4 |         4 |
+|            5 | 2008-07-10     | schimbare fan | 2011-02-21    | fan stricat         |   785 |          5 |         5 |
+|            6 | 2007-06-09     | instalare OS  | 2022-06-02    | performanta scazuta |   456 |          6 |         6 |
+|            7 | 2005-07-19     | instalare OS  | 2022-05-22    | performanta scazuta |   496 |          7 |         7 |
+|            8 | 2004-01-01     | instalare OS  | 2002-07-29    | performanta scazuta |   296 |          8 |         8 |
+|            9 | 2003-02-02     | instalare OS  | 2001-12-30    | performanta scazuta |   181 |          9 |         9 |
+|           10 | 2002-05-05     | instalare OS  | 2000-12-31    | performanta scazuta |   786 |         10 |        10 |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+10 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> show columns from clienti;
++------------+----------+------+-----+---------+----------------+
+| Field      | Type     | Null | Key | Default | Extra          |
++------------+----------+------+-----+---------+----------------+
+| id_client  | int(2)   | NO   | PRI | NULL    | auto_increment |
+| client     | tinytext | YES  |     | NULL    |                |
+| adresa     | tinytext | YES  |     | NULL    |                |
+| telefon    | tinytext | YES  |     | NULL    |                |
+| e_mail     | tinytext | YES  |     | NULL    |                |
+| website    | tinytext | YES  |     | NULL    |                |
+| observatii | tinytext | YES  |     | NULL    |                |
++------------+----------+------+-----+---------+----------------+
+7 rows in set (0.009 sec)
+
+MariaDB [itreparatii]> select * from clienti;
+Empty set (0.000 sec)
+
+MariaDB [itreparatii]> insert into clienti (client,adresa,telefon,e_mail,website,observatii) values('Popoescu Ion','Str. Cucilor nr.5','0742.622.039','popescu5@email.com','popoescu.com','client fidel');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into clienti (client,adresa,telefon,e_mail,website,observatii) values('Mihail Georgescu','Str. Ramurelelor nr.10','0732.652.039','georgescu6@email.com','georgescu.com','client non-fidel');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into clienti (client,adresa,telefon,e_mail,website,observatii) values('Alexandriu Marioara','Str. Trandafirilor nr.8','0712.621.078','maria8@email.com','marioara.com','client super-fidel');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [itreparatii]> insert into clienti values(default,'Rogoz Alexandra','Str. Telefoanelor nr.6',0752.655.558','alexandra10@email.com','alexandra.com','client extraordinar');
+    '>
+    '> insert into clienti values(default,'Rogoz Alexandra','Str. Telefoanelor nr.6',0752.655.558','alexandra10@email.com','alexandra.com','client extraordinar');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.558','alexandra10@email.com','alexandra.com','client extraordinar');
+
+insert...' at line 1
+MariaDB [itreparatii]> insert into clienti values(default,'Rogoz Alexandra','Str. Telefoanelor nr.6','0752.655.558','alexandra10@email.com','alexandra.com','client extraordinar');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into clienti values(default,'Nicole Cherry','Str. Masinii nr.99','0759.699.599','nicole60@email.com','nico.com','client minunat');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [itreparatii]> select * from clienti;
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+| id_client | client              | adresa                  | telefon      | e_mail                | website       | observatii          |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+|         1 | Popoescu Ion        | Str. Cucilor nr.5       | 0742.622.039 | popescu5@email.com    | popoescu.com  | client fidel        |
+|         2 | Mihail Georgescu    | Str. Ramurelelor nr.10  | 0732.652.039 | georgescu6@email.com  | georgescu.com | client non-fidel    |
+|         3 | Alexandriu Marioara | Str. Trandafirilor nr.8 | 0712.621.078 | maria8@email.com      | marioara.com  | client super-fidel  |
+|         4 | Rogoz Alexandra     | Str. Telefoanelor nr.6  | 0752.655.558 | alexandra10@email.com | alexandra.com | client extraordinar |
+|         5 | Nicole Cherry       | Str. Masinii nr.99      | 0759.699.599 | nicole60@email.com    | nico.com      | client minunat      |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> insert into clienti values(default,'Constantin Ioana','Str. Huzur nr.99','0789.889.899','ioanao6888@email.com','ioana.com','client minunat');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> insert into clienti values(default,'Chetroi Roxana','Str. Eroilor nr.55','0759.559.999','roxi6888@email.com','roxana.com','client oribil');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [itreparatii]> insert into clienti values(default,'Eminovici Razvan','Str. Universitatii nr.3','0741.444.944','razvan08@email.com','razvan.com','client oribil');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [itreparatii]> select * from clienti;
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+| id_client | client              | adresa                  | telefon      | e_mail                | website       | observatii          |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+|         1 | Popoescu Ion        | Str. Cucilor nr.5       | 0742.622.039 | popescu5@email.com    | popoescu.com  | client fidel        |
+|         2 | Mihail Georgescu    | Str. Ramurelelor nr.10  | 0732.652.039 | georgescu6@email.com  | georgescu.com | client non-fidel    |
+|         3 | Alexandriu Marioara | Str. Trandafirilor nr.8 | 0712.621.078 | maria8@email.com      | marioara.com  | client super-fidel  |
+|         4 | Rogoz Alexandra     | Str. Telefoanelor nr.6  | 0752.655.558 | alexandra10@email.com | alexandra.com | client extraordinar |
+|         5 | Nicole Cherry       | Str. Masinii nr.99      | 0759.699.599 | nicole60@email.com    | nico.com      | client minunat      |
+|         6 | Constantin Ioana    | Str. Huzur nr.99        | 0789.889.899 | ioanao6888@email.com  | ioana.com     | client minunat      |
+|         7 | Chetroi Roxana      | Str. Eroilor nr.55      | 0759.559.999 | roxi6888@email.com    | roxana.com    | client oribil       |
+|         8 | Eminovici Razvan    | Str. Universitatii nr.3 | 0741.444.944 | razvan08@email.com    | razvan.com    | client oribil       |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> select * from angajati;
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat          | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius   | Str. Revolutiei nr.1      | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          2 | Nicoleta Radu    | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
+|          3 | Mos Martin       | Str. Escu nr.90           | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
+|          4 | Razvan Antonescu | Str. Eminescu nr.4        | 0791.91.18.15 | 2009-11-20    | electronica  |  4900 |
+|          5 | Cantea Teodora   | Str. Rusescu nr.15        | 0781.09.24.25 | 2022-01-12    | informatica  |  8900 |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> show columns from clienti
+    -> show columns from clienti;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show columns from clienti' at line 2
+MariaDB [itreparatii]> show columns from clienti;
++------------+----------+------+-----+---------+----------------+
+| Field      | Type     | Null | Key | Default | Extra          |
++------------+----------+------+-----+---------+----------------+
+| id_client  | int(2)   | NO   | PRI | NULL    | auto_increment |
+| client     | tinytext | YES  |     | NULL    |                |
+| adresa     | tinytext | YES  |     | NULL    |                |
+| telefon    | tinytext | YES  |     | NULL    |                |
+| e_mail     | tinytext | YES  |     | NULL    |                |
+| website    | tinytext | YES  |     | NULL    |                |
+| observatii | tinytext | YES  |     | NULL    |                |
++------------+----------+------+-----+---------+----------------+
+7 rows in set (0.007 sec)
+
+MariaDB [itreparatii]> select * from clienti;
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+| id_client | client              | adresa                  | telefon      | e_mail                | website       | observatii          |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+|         1 | Popoescu Ion        | Str. Cucilor nr.5       | 0742.622.039 | popescu5@email.com    | popoescu.com  | client fidel        |
+|         2 | Mihail Georgescu    | Str. Ramurelelor nr.10  | 0732.652.039 | georgescu6@email.com  | georgescu.com | client non-fidel    |
+|         3 | Alexandriu Marioara | Str. Trandafirilor nr.8 | 0712.621.078 | maria8@email.com      | marioara.com  | client super-fidel  |
+|         4 | Rogoz Alexandra     | Str. Telefoanelor nr.6  | 0752.655.558 | alexandra10@email.com | alexandra.com | client extraordinar |
+|         5 | Nicole Cherry       | Str. Masinii nr.99      | 0759.699.599 | nicole60@email.com    | nico.com      | client minunat      |
+|         6 | Constantin Ioana    | Str. Huzur nr.99        | 0789.889.899 | ioanao6888@email.com  | ioana.com     | client minunat      |
+|         7 | Chetroi Roxana      | Str. Eroilor nr.55      | 0759.559.999 | roxi6888@email.com    | roxana.com    | client oribil       |
+|         8 | Eminovici Razvan    | Str. Universitatii nr.3 | 0741.444.944 | razvan08@email.com    | razvan.com    | client oribil       |
++-----------+---------------------+-------------------------+--------------+-----------------------+---------------+---------------------+
+8 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> select * from reparatii;
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie     | an_fabricatie | diagnostic          | tarif | id_angajat | id_client |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+|            1 | 2004-11-14     | schimbare ssd | 2021-01-27    | ssd stricat         |   450 |          1 |         1 |
+|            2 | 2005-10-13     | schimbare hdd | 2022-02-26    | hdd stricat         |   550 |          2 |         2 |
+|            3 | 2009-09-12     | schimbare cpu | 2020-03-25    | cpu stricat         |   150 |          3 |         3 |
+|            4 | 0000-00-00     | schimbare gpu | 2019-04-25    | gpu stricat         |   780 |          4 |         4 |
+|            5 | 2008-07-10     | schimbare fan | 2011-02-21    | fan stricat         |   785 |          5 |         5 |
+|            6 | 2007-06-09     | instalare OS  | 2022-06-02    | performanta scazuta |   456 |          6 |         6 |
+|            7 | 2005-07-19     | instalare OS  | 2022-05-22    | performanta scazuta |   496 |          7 |         7 |
+|            8 | 2004-01-01     | instalare OS  | 2002-07-29    | performanta scazuta |   296 |          8 |         8 |
+|            9 | 2003-02-02     | instalare OS  | 2001-12-30    | performanta scazuta |   181 |          9 |         9 |
+|           10 | 2002-05-05     | instalare OS  | 2000-12-31    | performanta scazuta |   786 |         10 |        10 |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+10 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> show COLUMNS from reparatii WHERE reparatie LIKE 'instalare OS';
+ERROR 1054 (42S22): Unknown column 'reparatie' in 'where clause'
+MariaDB [itreparatii]> show COLUMNS from reparatii WHERE diagnostic LIKE 'ssd stricat';
+ERROR 1054 (42S22): Unknown column 'diagnostic' in 'where clause'
+MariaDB [itreparatii]> show COLUMNS from reparatii WHERE diagnostic LIKE 'ssd stricat%';
+ERROR 1054 (42S22): Unknown column 'diagnostic' in 'where clause'
+MariaDB [itreparatii]> select * from reparatii where reparatie like 'schimbare ssd';
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie     | an_fabricatie | diagnostic  | tarif | id_angajat | id_client |
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+|            1 | 2004-11-14     | schimbare ssd | 2021-01-27    | ssd stricat |   450 |          1 |         1 |
++--------------+----------------+---------------+---------------+-------------+-------+------------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [itreparatii]> select * from reparatii where reparatie like 'instalare OS';
++--------------+----------------+--------------+---------------+---------------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie    | an_fabricatie | diagnostic          | tarif | id_angajat | id_client |
++--------------+----------------+--------------+---------------+---------------------+-------+------------+-----------+
+|            6 | 2007-06-09     | instalare OS | 2022-06-02    | performanta scazuta |   456 |          6 |         6 |
+|            7 | 2005-07-19     | instalare OS | 2022-05-22    | performanta scazuta |   496 |          7 |         7 |
+|            8 | 2004-01-01     | instalare OS | 2002-07-29    | performanta scazuta |   296 |          8 |         8 |
+|            9 | 2003-02-02     | instalare OS | 2001-12-30    | performanta scazuta |   181 |          9 |         9 |
+|           10 | 2002-05-05     | instalare OS | 2000-12-31    | performanta scazuta |   786 |         10 |        10 |
++--------------+----------------+--------------+---------------+---------------------+-------+------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> select columns from reparatii where reparatie like 'instalare OS';
+ERROR 1054 (42S22): Unknown column 'columns' in 'field list'
+MariaDB [itreparatii]> show columns from reparatii where reparatie like 'instalare OS';
+ERROR 1054 (42S22): Unknown column 'reparatie' in 'where clause'
+MariaDB [itreparatii]> select distinct clienti.client, clienti.adresa from clienti,reparatii where reparatii.id_client = clienti.id_client AND reparatii.reparatie = 'instalare OS';\
++------------------+-------------------------+
+| client           | adresa                  |
++------------------+-------------------------+
+| Constantin Ioana | Str. Huzur nr.99        |
+| Chetroi Roxana   | Str. Eroilor nr.55      |
+| Eminovici Razvan | Str. Universitatii nr.3 |
++------------------+-------------------------+
+3 rows in set (0.007 sec)
+
+MariaDB [itreparatii]> select distinct angajati.angajat

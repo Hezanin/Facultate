@@ -1,0 +1,29 @@
+BAZE DE DATE - LAB 5
+10. Sa se stearga din tabela angajati, angajatii care au participat la reparatiile cu nr 1 si 3
+11. Sa se modifice tariful reparatiilor la 1500 lei pentru obiectul "calculator"
+12. Sa se mareasca salariile cu 15%  pentru angajatii veniti in firma inainte de 1 ianuarie 2002.
+13. Sa se afiseze angajatii care au fost angajati in firma intr-o anumita perioada.
+14. Sa se selecteze numele tuturor angajatilor care incep cu litera .. " " ('b' de exemplu).
+15. Sa se selecteze toti angajatii care ultima litera 'u' (sau altceva).
+16. Sa se selecteze toti angajatii care au in nume secventa "es" (sau altceva)
+17. Sa se afiseze numele tututor angajatilor care sunt din 14 caractere
+18. Sa se selecteze toti angajatii care au lungimea numelui din 14 caractere dar al 13-lea caracter are litera ''
+19. Sa se selecteze campurile Angajat si Specializare ale angajatilor cu specializarea identica cu a lui 'nume'
+  
+REZOLVARE
+10. 
+//select id_angajat from reparatii where id_reparatie = 1 OR id_reparatie = 3;
+//select id_angajat from reparatii where id_reparatie in(1,3);
+select * from angajati where id_angajat in(select id_angajat from reparatii where id_reparatie in(1,3));
+
+12. select 1000 * 1.15;
+//?// update angajati set tarif 	where data_angajare where 
+MariaDB [itreparatii]> update angajati set salar = salar * 1.15 where data_angajare <= '2008/01/01';
+
+13. select * from angajati where data_angajare NOT BETWEEN '' AND ''
+    select * from angajati where data_angajare BETWEEN '' AND ''
+
+14. MariaDB [teste]> select * from sg3 where nume like '%A%';
+// %caracter% - gaseste stringul care are in compozitie (in interior) caracterul ales
+// %caracter - gaseste stringul care se termina cu caracterul ales
+// caracter% - gaseste stringul care incepe cu caracterul ales

@@ -1,0 +1,214 @@
+Microsoft Windows [Version 10.0.19044.2130]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hezan>cd/
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -p -u root localhost
+Enter password:
+ERROR 1049 (42000): Unknown database 'localhost'
+
+C:\xampp\mysql\bin>mysql -p -u root -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| itreparatii        |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| teste              |
++--------------------+
+7 rows in set (0.009 sec)
+
+MariaDB [(none)]> use itreparatii;
+Database changed
+MariaDB [itreparatii]> show tables;
++-----------------------+
+| Tables_in_itreparatii |
++-----------------------+
+| angajati              |
+| clienti               |
+| reparatii             |
++-----------------------+
+3 rows in set (0.006 sec)
+
+MariaDB [itreparatii]> show columns from angajati;
++---------------+----------+------+-----+---------+----------------+
+| Field         | Type     | Null | Key | Default | Extra          |
++---------------+----------+------+-----+---------+----------------+
+| id_angajat    | int(2)   | NO   | PRI | NULL    | auto_increment |
+| angajat       | tinytext | YES  |     | NULL    |                |
+| adresa        | tinytext | YES  |     | NULL    |                |
+| telefon       | tinytext | YES  |     | NULL    |                |
+| data_angajare | date     | YES  |     | NULL    |                |
+| specializare  | tinytext | YES  |     | NULL    |                |
+| salar         | int(2)   | YES  |     | NULL    |                |
++---------------+----------+------+-----+---------+----------------+
+7 rows in set (0.010 sec)
+
+MariaDB [itreparatii]> select * from angajati;
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat          | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius   | Str. Revolutiei nr.1      | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          2 | Nicoleta Radu    | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
+|          3 | Mos Martin       | Str. Escu nr.90           | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
+|          4 | Razvan Antonescu | Str. Eminescu nr.4        | 0791.91.18.15 | 2009-11-20    | electronica  |  4900 |
+|          5 | Cantea Teodora   | Str. Rusescu nr.15        | 0781.09.24.25 | 2022-01-12    | informatica  |  8900 |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+5 rows in set (0.009 sec)
+
+MariaDB [itreparatii]> show columns from reparatii;
++----------------+----------+------+-----+---------+----------------+
+| Field          | Type     | Null | Key | Default | Extra          |
++----------------+----------+------+-----+---------+----------------+
+| id_reparatie   | int(2)   | NO   | PRI | NULL    | auto_increment |
+| data_reparatie | date     | YES  |     | NULL    |                |
+| reparatie      | tinytext | YES  |     | NULL    |                |
+| an_fabricatie  | date     | YES  |     | NULL    |                |
+| diagnostic     | tinytext | YES  |     | NULL    |                |
+| tarif          | int(5)   | YES  |     | NULL    |                |
+| id_angajat     | int(2)   | YES  |     | NULL    |                |
+| id_client      | int(4)   | YES  |     | NULL    |                |
++----------------+----------+------+-----+---------+----------------+
+8 rows in set (0.009 sec)
+
+MariaDB [itreparatii]> select * from reparatii;
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+| id_reparatie | data_reparatie | reparatie     | an_fabricatie | diagnostic          | tarif | id_angajat | id_client |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+|            1 | 2004-11-14     | schimbare ssd | 2021-01-27    | ssd stricat         |   450 |          1 |         1 |
+|            2 | 2005-10-13     | schimbare hdd | 2022-02-26    | hdd stricat         |   550 |          2 |         2 |
+|            3 | 2009-09-12     | schimbare cpu | 2020-03-25    | cpu stricat         |   150 |          3 |         3 |
+|            4 | 0000-00-00     | schimbare gpu | 2019-04-25    | gpu stricat         |   780 |          4 |         4 |
+|            5 | 2008-07-10     | schimbare fan | 2011-02-21    | fan stricat         |   785 |          5 |         5 |
+|            6 | 2007-06-09     | instalare OS  | 2022-06-02    | performanta scazuta |   456 |          6 |         6 |
+|            7 | 2005-07-19     | instalare OS  | 2022-05-22    | performanta scazuta |   496 |          7 |         7 |
+|            8 | 2004-01-01     | instalare OS  | 2002-07-29    | performanta scazuta |   296 |          8 |         8 |
+|            9 | 2003-02-02     | instalare OS  | 2001-12-30    | performanta scazuta |   181 |          9 |         9 |
+|           10 | 2002-05-05     | instalare OS  | 2000-12-31    | performanta scazuta |   786 |         10 |        10 |
++--------------+----------------+---------------+---------------+---------------------+-------+------------+-----------+
+10 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> select id_angajat from reparatii where id_reparatie = 1 OR id_reparatie = 3;
++------------+
+| id_angajat |
++------------+
+|          1 |
+|          3 |
++------------+
+2 rows in set (0.009 sec)
+
+MariaDB [itreparatii]> select id_angajat from reparatii where id_reparatie in(1,3);
++------------+
+| id_angajat |
++------------+
+|          1 |
+|          3 |
++------------+
+2 rows in set (0.001 sec)
+
+MariaDB [itreparatii]> select * from angajati where id_angajat in(select id_angajat from reparatii where id_reparatie in(1,3));
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat        | adresa               | telefon       | data_angajare | specializare | salar |
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius | Str. Revolutiei nr.1 | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          3 | Mos Martin     | Str. Escu nr.90      | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+2 rows in set (0.006 sec)
+
+MariaDB [itreparatii]> select 1523*1.5;
++----------+
+| 1523*1.5 |
++----------+
+|   2284.5 |
++----------+
+1 row in set (0.007 sec)
+
+MariaDB [itreparatii]> select 1523*1.15;
++-----------+
+| 1523*1.15 |
++-----------+
+|   1751.45 |
++-----------+
+1 row in set (0.000 sec)
+
+MariaDB [itreparatii]> select 1751.45-1523;
++--------------+
+| 1751.45-1523 |
++--------------+
+|       228.45 |
++--------------+
+1 row in set (0.000 sec)
+
+MariaDB [itreparatii]> select * from angajati where id_angajat in(select id_angajat from reparatii where id_reparatie in(1,3));
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat        | adresa               | telefon       | data_angajare | specializare | salar |
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius | Str. Revolutiei nr.1 | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          3 | Mos Martin     | Str. Escu nr.90      | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
++------------+----------------+----------------------+---------------+---------------+--------------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [itreparatii]> select * from angajat where data_angajare = '2002/01/01'
+    -> select * from angajat where data_angajare = '2002/01/01';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from angajat where data_angajare = '2002/01/01'' at line 2
+MariaDB [itreparatii]> select * from angajat where data_angajare = '2002/01/01';
+ERROR 1146 (42S02): Table 'itreparatii.angajat' doesn't exist
+MariaDB [itreparatii]> select * from angajati;
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat          | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius   | Str. Revolutiei nr.1      | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          2 | Nicoleta Radu    | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
+|          3 | Mos Martin       | Str. Escu nr.90           | 0792.97.98.95 | 2008-09-14    | informatica  |  2900 |
+|          4 | Razvan Antonescu | Str. Eminescu nr.4        | 0791.91.18.15 | 2009-11-20    | electronica  |  4900 |
+|          5 | Cantea Teodora   | Str. Rusescu nr.15        | 0781.09.24.25 | 2022-01-12    | informatica  |  8900 |
++------------+------------------+---------------------------+---------------+---------------+--------------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [itreparatii]> select * from angajat where data_angajare < '2008/01/01';
+ERROR 1146 (42S02): Table 'itreparatii.angajat' doesn't exist
+MariaDB [itreparatii]> select * from angajati where data_angajare < '2008/01/01';
++------------+----------------+---------------------------+---------------+---------------+--------------+-------+
+| id_angajat | angajat        | adresa                    | telefon       | data_angajare | specializare | salar |
++------------+----------------+---------------------------+---------------+---------------+--------------+-------+
+|          1 | Popescu Marius | Str. Revolutiei nr.1      | 0722.77.28.55 | 2001-01-24    | electronica  |  1500 |
+|          2 | Nicoleta Radu  | Str. Constantinescu nr.10 | 0732.87.18.65 | 2004-06-04    | informatica  |  1900 |
++------------+----------------+---------------------------+---------------+---------------+--------------+-------+
+2 rows in set (0.006 sec)
+
+MariaDB [itreparatii]> update angajati set salar/1.15 where data_angajare < '2008/01/01;
+    '>
+    '> ;
+    '>
+    '>
+    '>
+    '> select * from angajati where data_angajare < '2008/01/01';
+    '> select * from angajati;
+    '> cancel;
+    '>
+    '>
+    '>
+    '>
+    '> select * from angajati;
+    '> show tables
+    '> show tables;
+    '> /p
+    '> home
+    '> cd/
+    '> /exit
+    '>
