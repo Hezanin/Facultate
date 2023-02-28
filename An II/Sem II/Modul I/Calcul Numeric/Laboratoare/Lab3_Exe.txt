@@ -1,0 +1,23 @@
+Exercitiul 1
+x1 = 176
+x2 = 125
+x3 = 41
+
+x1 = 1011 0000
+FN: 1.0110000 * 2^7
+fractia mantisei (0110000)
+mantisa  (tot numarul)
+2 (baza)
+7 (exponent)
+
+x3 = 1010 01
+FN: 1.01001 * 2^5
+mantisa: 1.01001
+FM: 01001
+b = 2
+e = 5
+n = 6
+
+======================
+
+
