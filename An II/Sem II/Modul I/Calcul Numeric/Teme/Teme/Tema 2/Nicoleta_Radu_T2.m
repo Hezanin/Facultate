@@ -1,1 +1,3 @@
-conversie2(0.1, 14)
+clear cls
+conversie16(10.5, 8)
+clear cls

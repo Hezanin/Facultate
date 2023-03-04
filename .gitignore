@@ -86,10 +86,6 @@ build/
 # Ignore Matlab generated documentation files
 *.html
 *.css
-*.png
 *.gif
-*.jpg
-*.pdf
-*.docx
 *.md
 *.rst

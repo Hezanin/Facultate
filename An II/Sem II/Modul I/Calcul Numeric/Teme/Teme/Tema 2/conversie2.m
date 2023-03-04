@@ -10,18 +10,22 @@ nrNeg=0;
 if x<0
  nrNeg=1; x=abs(x); % nrNeg = true daca avem un numar x negativ
 end
+
 vect=[]; % folosit pentru a scrie numarul din fata virgulei in baza 2
 ParteInt=0; ParteFract=0; % ParteInt,ParteFract - variab folosite pentru test
 % conversia pentru partea intreaga a lui x
+
 if fix(x)>0 % verificam daca avem parte intreaga la numarul real x
  ParteInt=1; % ParteInt = true daca avem un numar x cu parte intreaga
  x1=fix(x); %retin in x1 partea intreaga a lui x
+
  while fix(x1) > 0
  rest=mod(x1,2); % retin restul impartirii la 2
  x2=fix(x1/2); % retin catul lui x1/2
  x1=x2; % retin noua valoare pt x1
  vect=[vect,rest]; % salvam in vect resturile împărtirii la 2
  end
+ 
  cifre_parte_intreaga=fliplr(vect); % simetrie de la st la dr
 else
  cifre_parte_intreaga=0;
